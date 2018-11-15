@@ -29,6 +29,9 @@ This project creates a table of users with name, email and products that they ha
 - Have documentation that would be helpful to future engineers working on the project
 
 The tables should look like this when finished:
-![mobile_table](mobile_table.png) ![desktop_table](desktop_table.png)
+**Mobile View**
+![mobile_table](mobile_table.png)
+**Tablet/Laptop View**
+![desktop_table](desktop_table.png)
 
 **Please Check our [Wiki](https://github.com/vhx/ott-subscriptions/wiki) for instructions, tips and FAQ's**.
