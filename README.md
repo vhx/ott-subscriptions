@@ -31,10 +31,12 @@ This project creates a table of users with name, email and products that they ha
 The tables should look like this when finished:
 
 **Mobile View**
+
 ![mobile_table](mobile_table.png)
 
 
 **Tablet/Laptop View**
+
 ![desktop_table](desktop_table.png)
 
 **Please Check our [Wiki](https://github.com/vhx/ott-subscriptions/wiki) for instructions, tips and FAQ's**.
