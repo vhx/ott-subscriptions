@@ -10,7 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181211185141) do
+ActiveRecord::Schema.define(version: 20181212171033) do
+
+  create_table "customers", force: :cascade do |t|
+    t.string "email"
+    t.string "subscribed_at"
+    t.string "billing_type"
+    t.integer "product_id"
+    t.integer "location_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["location_id"], name: "index_customers_on_location_id"
+    t.index ["product_id"], name: "index_customers_on_product_id"
+  end
 
   create_table "locations", force: :cascade do |t|
     t.string "city"
@@ -21,21 +33,10 @@ ActiveRecord::Schema.define(version: 20181211185141) do
   end
 
   create_table "products", force: :cascade do |t|
-    t.string "productName"
+    t.string "product_name"
     t.string "platform"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "users", force: :cascade do |t|
-    t.string "email"
-    t.string "productName"
-    t.integer "location_id"
-    t.string "subscribed_at"
-    t.string "billing_type"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["location_id"], name: "index_users_on_location_id"
   end
 
 end
