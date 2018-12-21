@@ -60,3 +60,6 @@ gem 'oj'
 
 #A lightning fast JSON:API serializer for Ruby Objects.
 gem 'fast_jsonapi'
+
+#pagination gem
+gem 'will_paginate', '~> 3.1', '>= 3.1.6'

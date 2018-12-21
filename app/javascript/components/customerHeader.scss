@@ -1,1 +1,29 @@
 @import '../../assets/stylesheets/application.scss';
+
+.headerWrapper {
+    height: 100px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+
+    .memberIcon {
+        img {
+            height: 100%;
+            width: 100%;
+        }
+    }
+
+    .headerTitle {
+        flex-direction: column;
+        font-family: $default-font;
+        .activityTitle {
+            color: $AstroGranite;
+            font-size: $large;
+        }
+        .activityMsg {
+            color: $SoutherlySky;
+            font-size: $medium;
+        }
+    }
+}

@@ -1,11 +1,34 @@
 @import '../../assets/stylesheets/application.scss';
 
-.AppContainer {
-    height: 70px;
+body {
+    margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+
+.appContainer {
+    height: 100%;
     width: 100%;
-    background: $VimeoBlue;
+    background: $PalePink;
     color: $Porcelain;
     display: flex;
+    flex-direction: column;
     font-size: $large;
     justify-content: center;
+}
+
+
+/*** Media Queries ***/
+
+@media screen and #{$mobile} {
+    .appContainer {
+        background: $Foam;
+        .searchBarWrapper {
+            display: none;
+        }
+    }
+
 }
