@@ -1,0 +1,26 @@
+@import '../../assets/stylesheets/application.scss';
+
+.searchBarWrapper {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+
+    .searchForm {
+        display: flex;
+        flex-direction: row;
+
+        .searchInput {
+            width: 150px;
+            background: $White;
+            flex-grow: 2;
+        }
+
+        .searchBtn {
+            height: 30px;
+            width: 30px;
+            background: $White;
+            border: none;
+        }
+    }
+}
