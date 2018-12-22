@@ -13,7 +13,7 @@ class API::V1::CustomerController < ApplicationController
     # json_string = CustomerSerializer.new(@customers).serialized_json
 
     render json:{ 
-                  payload: @customers, 
+                  customers: @customers, 
                   page: @customers.current_page, 
                   pages: @customers.total_pages
                 }, 
