@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchSubscriptions } from '../actions/subActions';
+import { fetchSubscriptions, fetchPage } from '../actions/subActions';
 
 import CustomerHeader from './customerHeader';
 import SearchBar from './searchBar';
 import Customers from './customers';
+import PaginationBar from './paginationBar';
 import './App.scss';
 
 class App extends Component {
@@ -14,16 +15,29 @@ class App extends Component {
     
   }
 
+  handlePageChange = (e, { activePage }) => {
+    let goToPage = { activePage };
+    let pageNum = goToPage.activePage;
+    let pageString = pageNum.toString();
+    this.props.fetchPage(pageString);
+    
+  }
+
   render() {
     console.log(this.props)
-
     return (
       <div className='appContainer'>
         <CustomerHeader />
         <SearchBar />
         <Customers customers={this.props.customers} 
                    page={this.props.page} 
-                   pages={this.props.pages}/>
+                   pages={this.props.pages}
+        />
+        <PaginationBar page={this.props.page}
+                       pages={this.props.pages}
+                       onPageChange={this.handlePageChange}
+
+        />
       </div>
     )
   }
@@ -40,7 +54,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    fetchSubscriptions: () => dispatch(fetchSubscriptions())
+    fetchSubscriptions: () => dispatch(fetchSubscriptions()),
+    fetchPage: (pageNumber) => dispatch(fetchPage(pageNumber))
   }
 }
 

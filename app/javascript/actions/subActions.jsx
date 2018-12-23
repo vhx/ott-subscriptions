@@ -18,6 +18,19 @@ export function fetchSubscriptions() {
     };
 };
 
+export function fetchPage(pageNumber) {
+  return dispatch => {
+
+    dispatch(fetchSubsBegin());
+    
+    return axios.get("http://localhost:3000/api/v1/customer/?page=" + pageNumber)
+      .then(json => {
+        dispatch(fetchSubsSuccess(json.data));
+      })
+      .catch( error => dispatch(fetchSubsFailure(error)));
+    };
+};
+
 export const fetchSubsBegin = () => ({
   type: FETCH_SUBSCRIPTIONS_BEGIN
 });

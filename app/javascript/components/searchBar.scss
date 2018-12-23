@@ -1,24 +1,29 @@
 @import '../../assets/stylesheets/application.scss';
 
 .searchBarWrapper {
-    height: 100%;
+    height: 100px;
     width: 100%;
+    align-items: center;
     background: $Plaster;
     display: flex;
     justify-content: flex-end;
-
+    
     .searchForm {
+        height: 40%;
         display: flex;
         flex-direction: row;
+        padding-right: 30px;
 
         .searchInput {
-            width: 150px;
+            width: 170px;
             background: $White;
+            border: none;
             flex-grow: 2;
+            padding-left: 5px;
         }
 
         .searchBtn {
-            height: 30px;
+            height: 100%;
             width: 30px;
             background: $White;
             border: none;

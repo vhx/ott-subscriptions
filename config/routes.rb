@@ -5,7 +5,11 @@ Rails.application.routes.draw do
   #get "__api__endpoints___"
   namespace 'api' do
     namespace 'v1' do
-      resources :customer
+      resources :customer do
+        collection do
+          get :search
+        end
+      end
     end
   end
   

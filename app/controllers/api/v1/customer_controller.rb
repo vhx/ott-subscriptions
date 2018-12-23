@@ -11,7 +11,6 @@ class API::V1::CustomerController < ApplicationController
                 .paginate(:page => params[:page])
 
     # json_string = CustomerSerializer.new(@customers).serialized_json
-
     render json:{ 
                   customers: @customers, 
                   page: @customers.current_page, 
@@ -20,8 +19,13 @@ class API::V1::CustomerController < ApplicationController
            status: :ok
   end
 
+  # EXTRA CREDIT: Implement searching for email, product, and subscription type
   def search
-    # EXTRA CREDIT: Implement searching for email, product, and subscription type
+    if params[:search]
+      @customers = Customer.search(params)
+      render json: @customers, status: :ok
+   
+    end 
   end
   
 end

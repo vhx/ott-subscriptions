@@ -33,7 +33,7 @@ const Customers = ({ customers, page, pages }) => {
           <tr>
             <th>Customers</th>
             <th>Products</th>
-            <th>{page}-{10*page} of {pages}</th>
+            <th>{page} of {pages}</th>
           </tr>
         </thead>
         <tbody>
