@@ -11,8 +11,6 @@ export function fetchSubscriptions() {
     dispatch(fetchSubsBegin());
     
     return axios.get("http://localhost:3000/api/v1/customer")
-  
-      // .then(response => console.log(response))
       .then(json => {
         dispatch(fetchSubsSuccess(json.data));
       })

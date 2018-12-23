@@ -25,9 +25,29 @@ body {
 @media screen and #{$mobile} {
     .appContainer {
         background: $Foam;
+
         .searchBarWrapper {
             display: none;
         }
-    }
 
+        .customersWrapper {
+            .largeTable {
+                display: none;
+            }
+            
+        }
+    }
+}
+
+@media screen and #{$phablet} {
+    
+    .appContainer{
+
+        .customersWrapper {
+
+            .smallTable {
+                display: none;
+            }
+        }
+    }
 }

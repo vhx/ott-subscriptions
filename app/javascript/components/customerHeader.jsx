@@ -10,7 +10,7 @@ const CustomerHeader = (props) => {
       </div>
       <div className='headerTitle'>
         <div className='activityTitle'> 
-          Customer
+          CUSTOMERS
         </div>
         <div className='activityMsg'>
           Most recent activity from your entire audience
