@@ -31,6 +31,19 @@ export function fetchPage(pageNumber) {
     };
 };
 
+export function fetchSearch(searchString) {
+  return dispatch => {
+
+    dispatch(fetchSubsBegin());
+    
+    return axios.get("http://localhost:3000/api/v1/customer/search?search=" + searchString)
+      .then(json => {
+        dispatch(fetchSubsSuccess(json.data));
+      })
+      .catch( error => dispatch(fetchSubsFailure(error)));
+    };
+};
+
 export const fetchSubsBegin = () => ({
   type: FETCH_SUBSCRIPTIONS_BEGIN
 });

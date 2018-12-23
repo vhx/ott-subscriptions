@@ -3,8 +3,11 @@ import './searchBar.scss'
 import searchIcon from '../../assets/images/search-mono.svg';
 
 class SearchBar extends Component {
-  state = {
-    searchString: null
+  constructor(props) {
+    super(props);
+    this.state = {
+      searchString: null
+    }
   }
 
   handleChange = (e) => {
@@ -15,7 +18,8 @@ class SearchBar extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    console.log(this.state);
+    //console.log(this.state);
+    this.props.search(this.state.searchString);
   }
 
   render() {

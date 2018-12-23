@@ -12,7 +12,7 @@ body {
 .appContainer {
     height: 100%;
     width: 100%;
-    background: $PalePink;
+    background: $White;
     color: $Porcelain;
     display: flex;
     flex-direction: column;
@@ -24,7 +24,6 @@ body {
 
 @media screen and #{$mobile} {
     .appContainer {
-        background: $Foam;
 
         .searchBarWrapper {
             display: none;

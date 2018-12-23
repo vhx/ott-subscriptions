@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchSubscriptions, fetchPage } from '../actions/subActions';
+import { fetchSubscriptions, fetchPage, fetchSearch } from '../actions/subActions';
 
 import CustomerHeader from './customerHeader';
 import SearchBar from './searchBar';
@@ -20,7 +20,11 @@ class App extends Component {
     let pageNum = goToPage.activePage;
     let pageString = pageNum.toString();
     this.props.fetchPage(pageString);
-    
+  }
+
+  handleSearch = (searchString) => {
+    // console.log(searchString);
+    this.props.fetchSearch(searchString);
   }
 
   render() {
@@ -28,7 +32,7 @@ class App extends Component {
     return (
       <div className='appContainer'>
         <CustomerHeader />
-        <SearchBar />
+        <SearchBar search={this.handleSearch}/>
         <Customers customers={this.props.customers} 
                    page={this.props.page} 
                    pages={this.props.pages}
@@ -55,7 +59,8 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     fetchSubscriptions: () => dispatch(fetchSubscriptions()),
-    fetchPage: (pageNumber) => dispatch(fetchPage(pageNumber))
+    fetchPage: (pageNumber) => dispatch(fetchPage(pageNumber)),
+    fetchSearch: (searchString) => dispatch(fetchSearch(searchString))
   }
 }
 

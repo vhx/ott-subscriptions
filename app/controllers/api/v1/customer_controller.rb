@@ -22,9 +22,13 @@ class API::V1::CustomerController < ApplicationController
   # EXTRA CREDIT: Implement searching for email, product, and subscription type
   def search
     if params[:search]
-      @customers = Customer.search(params)
-      render json: @customers, status: :ok
-   
+      @customers = Customer.search(params).paginate(:page => params[:page])
+      render json:{ 
+                    customers: @customers, 
+                    page: @customers.current_page, 
+                    pages: @customers.total_pages
+                  }, 
+              status: :ok
     end 
   end
   
