@@ -5,6 +5,15 @@
 - Front End: React, Redux, redux-thunk, axios, semantic-ui-react 
 - Back End: Ruby on Rails, Gems: fast_jsonapi, will_paginate, sqlite3  
 
+## Installation :   
+
+- Migrate Database and Seed it
+ ```bash
+   bundle exec rake db:migrate
+   bundle exec rake db:seed
+   ```
+
+
 ## Front End :
 
 - Be able to retrieve data from the API
