@@ -32,8 +32,14 @@
 - Consist of at least 3 ActiveRecord models:   
 ![activemodels](my_activemodels.png)
 - Contain 2 routes only,  1 for the home page (existing), and 1  subscriptions api end point
-- Return JSON format only using any serialization library: fast_jsonapi
+- Return JSON format only using any serialization library: 
+```bash     
+   fast_jsonapi
+   ```    
 - Support api pagination using any pagination gem or library: will_paginate
+```bash       
+   will_paginate  
+   ```   
 - Contains a seed file that imports the sample_data.json file into the relational sqlite database.
 - Has at least one test for the api endpoint: tested api endpoint using postman
 
