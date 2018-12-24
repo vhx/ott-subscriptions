@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchSubscriptions, fetchPage, fetchSearch } from '../actions/subActions';
+import { fetchSubscriptions, fetchPage, fetchSearch, fetchSearchPage } from '../actions/subActions';
 
 import CustomerHeader from './customerHeader';
 import SearchBar from './searchBar';
@@ -12,14 +12,16 @@ class App extends Component {
 
   componentDidMount() {
     this.props.fetchSubscriptions();
-    
+
   }
 
   handlePageChange = (e, { activePage }) => {
     let goToPage = { activePage };
     let pageNum = goToPage.activePage;
     let pageString = pageNum.toString();
-    this.props.fetchPage(pageString);
+    (this.props.searching) ?
+      this.props.fetchSearchPage(this.props.searchString, pageString) :
+      this.props.fetchPage(pageString);
   }
 
   handleSearch = (searchString) => {
@@ -32,14 +34,14 @@ class App extends Component {
     return (
       <div className='appContainer'>
         <CustomerHeader />
-        <SearchBar search={this.handleSearch}/>
-        <Customers customers={this.props.customers} 
-                   page={this.props.page} 
-                   pages={this.props.pages}
+        <SearchBar search={this.handleSearch} />
+        <Customers customers={this.props.customers}
+          page={this.props.page}
+          pages={this.props.pages}
         />
         <PaginationBar page={this.props.page}
-                       pages={this.props.pages}
-                       onPageChange={this.handlePageChange}
+          pages={this.props.pages}
+          onPageChange={this.handlePageChange}
 
         />
       </div>
@@ -52,7 +54,9 @@ const mapStateToProps = (state) => {
     customers: state.customers,
     page: state.page,
     pages: state.pages,
-    loading: state.loading
+    loading: state.loading,
+    searching: state.searching,
+    searchString: state.searchString
   }
 }
 
@@ -60,7 +64,8 @@ const mapDispatchToProps = (dispatch) => {
   return {
     fetchSubscriptions: () => dispatch(fetchSubscriptions()),
     fetchPage: (pageNumber) => dispatch(fetchPage(pageNumber)),
-    fetchSearch: (searchString) => dispatch(fetchSearch(searchString))
+    fetchSearch: (searchString) => dispatch(fetchSearch(searchString)),
+    fetchSearchPage: (searchString, pageNumber) => dispatch(fetchSearchPage(searchString, pageNumber))
   }
 }
 

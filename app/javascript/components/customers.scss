@@ -22,7 +22,8 @@
 
             .smCol1 {
                 .smColFirstEle {
-                    padding-bottom: 4px;
+                    padding-top: 5px;
+                    padding-bottom: 10px;
                 }
             }
         }
@@ -43,7 +44,7 @@
         }
 
         th,td {
-            padding:10px 2px;
+            padding: 20px 2px;
             border-bottom: 2px solid $Plaster;
         }
     }

@@ -26,7 +26,7 @@ class SearchBar extends Component {
     return (
       <div className='searchBarWrapper'>
         <form className='searchForm' onSubmit={this.handleSubmit}>
-          <input className='searchInput' type='text' id='searchString' onChange={this.handleChange}  placeholder='Search by name or email'/>
+          <input className='searchInput' type='text' id='searchString' onChange={this.handleChange}  placeholder='Search by email or product or subscription'/>
           <button className='searchBtn'>
             <img src={searchIcon} alt="A search icon"/>
           </button>

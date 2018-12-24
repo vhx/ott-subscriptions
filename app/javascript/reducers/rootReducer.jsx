@@ -1,7 +1,9 @@
 import {
     FETCH_SUBSCRIPTIONS_BEGIN,
     FETCH_SUBSCRIPTIONS_SUCCESS,
-    FETCH_SUBSCRIPTIONS_FAILURE
+    FETCH_SUBSCRIPTIONS_FAILURE,
+    SEARCH_SUBSCRIPTIONS,
+    SEARCH_BEGINS
 } from '../actions/subActions';
 
 const initState = {
@@ -9,7 +11,9 @@ const initState = {
     page: null,
     pages: null,
     loading: false,
-    error: null
+    error: null,
+    searching: false,
+    searchString: null
 }
 
 const rootReducer = (state = initState, action) => {
@@ -38,6 +42,27 @@ const rootReducer = (state = initState, action) => {
                 page: null,
                 pages: null,
                 loading: false
+            }
+
+        case SEARCH_BEGINS:
+            return {
+                ...state,
+                loading: true,
+                error: null,
+                searching: true,
+                searchString: action.payload
+            };
+
+        case SEARCH_SUBSCRIPTIONS:
+            return {
+                ...state,
+                customers: action.payload.customers,
+                page: action.payload.page,
+                pages: action.payload.pages,
+                loading: false,
+                searching: true,
+                searchString: action.searchString
+
             }
         
         default:
