@@ -1,10 +1,12 @@
 # :sparkles: :sparkles: Customer Subscriptions :sparkles: :sparkles:
 
-This project creates a table of users with name, email and products that they have subscribed to.  The user should be able to display all the users as well as search by name or email.
+## Usage :   
 
-## Front End Requirements:
+- Front End: React, Redux, redux-thunk, axios, semantic-ui-react 
+- Back End: Ruby on Rails, Gems: fast_jsonapi, will_paginate, sqlite3  
 
-**This project should:**
+## Front End :
+
 - Be able to retrieve data from the API
 - Be able to display the retrieved data
 - Be able to search the retrieved data and return the desired result on the UI
