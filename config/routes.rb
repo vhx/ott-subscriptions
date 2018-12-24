@@ -3,4 +3,14 @@ Rails.application.routes.draw do
   root to: "home#index"
 
   #get "__api__endpoints___"
+  namespace 'api' do
+    namespace 'v1' do
+      resources :customer do
+        collection do
+          get :search
+        end
+      end
+    end
+  end
+  
 end

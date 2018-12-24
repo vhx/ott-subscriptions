@@ -1,0 +1,53 @@
+@import '../../assets/stylesheets/application.scss';
+
+.customersWrapper {
+    background: $White;
+    font-size: $medium;
+    color: $DarkDark;
+    padding: 20px;
+
+    .smallTable {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        .smRow {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            border-bottom: 2px solid $Plaster;
+            padding: 10px 7px;
+
+            .smCol1 {
+                .smColFirstEle {
+                    padding-top: 5px;
+                    padding-bottom: 10px;
+                }
+            }
+        }
+    }
+
+    .largeTable {
+        
+        height: 100px;
+        width: 100%;
+        border-collapse: collapse;
+        
+        thead {
+            color: $RegentGray;
+        }
+
+        th {
+            text-align: left;
+        }
+
+        th,td {
+            padding: 20px 2px;
+            border-bottom: 2px solid $Plaster;
+        }
+    }
+
+    
+}

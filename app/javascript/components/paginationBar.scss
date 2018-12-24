@@ -1,0 +1,19 @@
+@import '../../assets/stylesheets/application.scss';
+
+.paginationBarWrapper {
+    height: 100%;
+    width: 100%;
+    align-items: center;
+    background: $White;
+    color: $DarkDark;
+    
+    display: flex;
+    font-size: $medium;
+    justify-content: center;
+    padding: 8px 0px 10px 0px;
+
+    a {
+        cursor: pointer;
+        padding: 2px;
+    }
+}

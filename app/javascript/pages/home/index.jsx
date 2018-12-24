@@ -1,25 +1,18 @@
-import React from 'react'
-import ReactDOM from 'react-dom'
-import PropTypes from 'prop-types'
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { createStore, applyMiddleware } from 'redux';
+import { Provider } from 'react-redux';
+import thunk from 'redux-thunk';
+import rootReducer from '../../reducers/rootReducer';
+import App from '../../components/App';
 
-const Index = props => (
-  <div>Hello {props.name}!</div>
-)
-
-Index.defaultProps = {
-  name: ''
-}
-
-Index.propTypes = {
-  name: PropTypes.string
-}
+const store = createStore(rootReducer, applyMiddleware(thunk));
 
 document.addEventListener('DOMContentLoaded', () => {
   ReactDOM.render(
-    <Index name="React" />,
+    <Provider store={store}>
+      <App />
+    </Provider>,
     document.body.appendChild(document.createElement('div')),
   )
 })
-
-
-export default Index

@@ -54,3 +54,12 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+#A fast JSON parser and Object marshaller as a Ruby gem.
+gem 'oj'
+
+#A lightning fast JSON:API serializer for Ruby Objects.
+gem 'fast_jsonapi'
+
+#pagination gem
+gem 'will_paginate', '~> 3.1', '>= 3.1.6'

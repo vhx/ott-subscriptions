@@ -1,42 +1,54 @@
 # :sparkles: :sparkles: Customer Subscriptions :sparkles: :sparkles:
 
-This project creates a table of users with name, email and products that they have subscribed to.  The user should be able to display all the users as well as search by name or email.
+## Usage :   
 
-## Front End Requirements:
+- This project was built, compiled, and tested on MacOS   
+- Front End: React, Redux, redux-thunk, axios, semantic-ui-react 
+- Back End: Ruby on Rails, Gems: fast_jsonapi, will_paginate, sqlite3 
+- Prerequisites: webpack, yarn, ruby, git, homebrew    
 
-**This project should:**
-- Be able to retrieve data from the API
-- Be able to display the retrieved data
-- Be able to search the retrieved data and return the desired result on the UI
-- Make use of React or HTML, CSS and vanilla JavaScript for UI elements
-- Make use of a CSS preprocessor (SCSS) for UI elements
-- Ensure that the views are responsive, starting mobile first
+## Installation :   
 
-## Backend Requirements
+- Clone this repo and cd into it. Run:   
+```bash   
+   bundle install    
+   ```      
+- Migrate Database and Seed it
+ ```bash   
+   bundle exec rake db:migrate
+   bundle exec rake db:seed
+   ```     
+- Start the rails server
+```bash    
+   rails s
+   ```         
+- From there, the application can be viewed by typing into the URL bar:  
+```bash    
+   localhost:3000
+   ```     
 
-**The Subscriptions Api Should:**
-- Consist of at least 3 ActiveRecord models
+## Backend :
+
+- Consist of at least 3 ActiveRecord models:   
+![activemodels](my_activemodels.png)
 - Contain 2 routes only,  1 for the home page (existing), and 1  subscriptions api end point
-- Return JSON format only using any serialization library of your choice
-- Support api pagination using any pagination gem or library of your choice.
+- Return JSON format only using any serialization library: 
+```bash     
+   fast_jsonapi
+   ```    
+- Support api pagination using any pagination gem or library: will_paginate
+```bash       
+   will_paginate  
+   ```   
 - Contains a seed file that imports the sample_data.json file into the relational sqlite database.
-- Has at least one test for the api endpoint
-
-## General Requirements:
-
-**This project should:**
-- Be thoroughly tested end to end.
-- Have documentation that would be helpful to future engineers working on the project
-
-The tables should look like this when finished:
-
-**Mobile View**
-
-![mobile_table](mobile_table.png)
+- Has at least one test for the api endpoint: tested api endpoint using postman
 
 
-**Tablet/Laptop View**
+## Front End :
 
-![desktop_table](desktop_table.png)
-
-**Please Check our [Wiki](https://github.com/vhx/ott-subscriptions/wiki) for instructions, tips and FAQ's**.
+- Mobile View:
+![mobile_table](my_mobileview.png)   
+- Tablet/Laptop View:   
+![laptop_table](my_laptopview.png)   
+- Be able to search the retrieved data and return the desired result on the UI:
+![search_example](my_searching4fred.png)  

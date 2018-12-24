@@ -1,0 +1,30 @@
+@import '../../assets/stylesheets/application.scss';
+
+.headerWrapper {
+    height: 120px;
+    width: 100%;
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+
+    .memberIcon {
+        img {
+            height: 80px;
+            width: 100%;
+        }
+    }
+
+    .headerTitle {
+        flex-direction: column;
+        font-family: $brandon-font;
+        .activityTitle {
+            color: $AstroGranite;
+            font-size: $large;
+        }
+        .activityMsg {
+            color: $SoutherlySky;
+            font-size: $medium;
+        }
+    }
+}

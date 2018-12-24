@@ -1,0 +1,50 @@
+@import '../../assets/stylesheets/application.scss';
+
+body {
+    margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+
+.appContainer {
+    height: 100%;
+    width: 100%;
+    background: $White;
+    color: $Porcelain;
+    display: flex;
+    flex-direction: column;
+    font-size: $large;
+    justify-content: center;
+}
+
+/*** Media Queries ***/
+
+@media screen and #{$mobile} {
+    .appContainer {
+
+        .searchBarWrapper {
+            display: none;
+        }
+
+        .customersWrapper {
+            .largeTable {
+                display: none;
+            }
+            
+        }
+    }
+}
+
+@media screen and (min-width: 640px) {
+    .appContainer{
+        .customersWrapper {
+            .smallTable {
+                display: none;
+            }
+        }
+    }
+}
+
