@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  subscribed_at: MyString
+  billing_type: MyString
+  customer_id: 1
+
+two:
+  subscribed_at: MyString
+  billing_type: MyString
+  customer_id: 1
