@@ -3,4 +3,7 @@ Rails.application.routes.draw do
   root to: "home#index"
 
   #get "__api__endpoints___"
+  get "/localhost:3000/subscriptions", to: "subscriptions#index"
+
+
 end
