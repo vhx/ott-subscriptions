@@ -19,7 +19,7 @@ class Subscriptions extends Component  {
   fetchCustomers = () => {
     fetch('http:localhost:3000/subscriptions')
     .then(r=>r.json())
-    .then(console.log)
+    .then(json=> console.log(json[0]))
   }
 
 }

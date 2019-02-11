@@ -1,7 +1,8 @@
 class ApiController < ApplicationController
 
-  def customers
-    @customers = []
+  def subscriptions
+    @subscriptions = Subscription.all
+    render json: @subscriptions
   end
 
   def search
