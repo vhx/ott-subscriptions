@@ -1,9 +1,13 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import ReactDOM from 'react-dom'
 import Subscriptions from './subscriptions';
+import Header from './header';
 
 const Index = () => (
-  <Subscriptions/>
+  <Fragment>
+    <Header/>
+
+  </Fragment>
 )
 
 document.addEventListener('DOMContentLoaded', () => {
