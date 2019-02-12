@@ -3,25 +3,59 @@
 
 body {
   font-family: $default-font;
+  margin: 0;
 }
 
 
 // *************** Header Component ************* //
 
 .customer-image {
-  width: 60px;
   margin: 10px 20px 10px 10px;
+  width: 60px;
+
+  @media #{$mobile} {
+    margin: 5px 15px 5px 5px;
+    padding-right: 5px;
+    width: 50px;
+  }
 }
 
 .header-container {
   width: 100%;
   height: 80px;
   display: flex;
+  margin: 20px;
   align-items: center;
 }
 
 .customers-header {
-  font-size: $large;
   font-family: $brandon-font;
-  font-weight: 100;
+  font-size: $large;
+
+  @media #{$mobile} {
+    font-size: $medium;
+  }
+}
+
+div.customers-header + div {
+  color: $RegentGray;
+}
+
+// *************** Searchbar Component ************* //
+
+.searchbar-container {
+  width: 100%;
+  height: 120px;
+  background-color: $Porcelain;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+
+  @media #{$mobile} {
+    display: none;
+  }
+}
+
+form {
+padding-right: 60px;
 }
