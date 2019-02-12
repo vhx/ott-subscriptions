@@ -1,20 +1,23 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
+import TableRow from './tableRow';
 
-class Subscriptions extends Component {
+class TableBody extends Component {
   state = {
     subscriptions: {}
   }
 
   renderSubscriptions = () => {
     if (this.state.subscriptions.length > 1) {
-      return this.state.subscriptions.map(s=><div key={s.id}>{s.customer.email}</div>)
+      return this.state.subscriptions.map(subscription=><TableRow key={subscription.id} subscription={subscription}/>)
     }
   }
 
   render() {
-    return ( <div> {
-      this.renderSubscriptions()
-    } </div>)
+    return (
+      <Fragment>
+        {this.renderSubscriptions()}
+      </Fragment>
+    )
   }
 
   componentDidMount() {
@@ -34,4 +37,4 @@ class Subscriptions extends Component {
 }
 
 
-  export default Subscriptions
+  export default TableBody

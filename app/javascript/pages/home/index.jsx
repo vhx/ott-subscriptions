@@ -1,13 +1,14 @@
 import React, { Fragment } from 'react'
 import ReactDOM from 'react-dom'
-import Subscriptions from './subscriptions';
 import Header from './header';
+import TableHeader from './tableHeader';
 import Searchbar from './searchbar'
 
 const Index = () => (
   <Fragment>
     <Header/>
     <Searchbar/>
+    <TableHeader/>
 
   </Fragment>
 )

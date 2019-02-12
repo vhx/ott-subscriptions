@@ -34,6 +34,8 @@ gem 'jbuilder', '~> 2.5'
 gem 'rb-readline'
 gem 'active_model_serializers'
 gem 'json'
+# For rails pagination
+gem 'kaminari'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
