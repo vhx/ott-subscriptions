@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import TableBody from './tableBody';
+import Pagination from './pagination';
 
 class TableHeader extends Component {
 
@@ -10,7 +11,7 @@ class TableHeader extends Component {
           <tr className="row">
             <th className="headers">Customer</th>
             <th className="headers column">Product</th>
-            <th className="headers">Pagination</th>
+            <th className="headers"><Pagination/></th>
           </tr>
           <TableBody/>
         </tbody>

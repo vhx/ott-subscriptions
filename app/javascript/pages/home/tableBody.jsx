@@ -27,10 +27,8 @@ class TableBody extends Component {
 
   fetchCustomers = () => {
     fetch('http:localhost:3000/subscriptions')
-      .then(r => r.json())
-      .then(json => {
-        this.props.updateSubscriptions(json)
-      })
+    .then(r=>r.json())
+    .then(json=>this.props.updateSubscriptions(json))
   }
 
 }
@@ -43,11 +41,12 @@ function mapStateToProps(state){
 
 function mapDispatchToState(dispatch){
   return {
-    updateSubscriptions: (subscriptions)=> dispatch({
+    updateSubscriptions: (json)=> dispatch({
       type: "UPDATE_SUBSCRIPTIONS",
-      payload: subscriptions
+      payload: json
     })
   }
 }
 
   export default connect(mapStateToProps, mapDispatchToState)(TableBody)
+//

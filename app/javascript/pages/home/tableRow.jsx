@@ -6,8 +6,8 @@ const TableRow = (props)=> {
 
   return (
     <tr>
-      <td><div>{props.subscription.customer.email}</div><div className="mobile-product">{props.subscription.product.name}</div></td>
-      <td className="column">{props.subscription.product.name}</td>
+      <td><div>{props.subscription.relationships.customer.data.email}</div><div className="mobile-product">{props.subscription.relationships.product.data.name}</div></td>
+      <td className="column">{props.subscription.relationships.product.data.name}</td>
       <td><Moment diff={props.subscription.subscribed_at} unit="days">{moment()}</Moment> days ago</td>
     </tr>
   )
