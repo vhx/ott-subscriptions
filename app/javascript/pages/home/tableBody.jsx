@@ -1,14 +1,15 @@
 import React, { Component, Fragment } from 'react';
 import TableRow from './tableRow';
+import { connect } from 'react-redux'
 
 class TableBody extends Component {
-  state = {
-    subscriptions: {}
-  }
+  // state = {
+  //   subscriptions: {}
+  // }
 
   renderSubscriptions = () => {
-    if (this.state.subscriptions.length > 1) {
-      return this.state.subscriptions.map(subscription=><TableRow key={subscription.id} subscription={subscription}/>)
+    if (this.props.subscriptions.length > 1) {
+      return this.props.subscriptions.map(subscription=><TableRow key={subscription.id} subscription={subscription}/>)
     }
   }
 
@@ -28,13 +29,25 @@ class TableBody extends Component {
     fetch('http:localhost:3000/subscriptions')
       .then(r => r.json())
       .then(json => {
-        this.setState({
-          subscriptions: json
-        })
+        this.props.updateSubscriptions(json)
       })
   }
 
 }
 
+function mapStateToProps(state){
+  return {
+    subscriptions: state.subscriptions
+  }
+}
 
-  export default TableBody
+function mapDispatchToState(dispatch){
+  return {
+    updateSubscriptions: (subscriptions)=> dispatch({
+      type: "UPDATE_SUBSCRIPTIONS",
+      payload: subscriptions
+    })
+  }
+}
+
+  export default connect(mapStateToProps, mapDispatchToState)(TableBody)

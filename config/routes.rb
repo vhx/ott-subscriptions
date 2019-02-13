@@ -4,5 +4,5 @@ Rails.application.routes.draw do
 
   #get "__api__endpoints___"
   get "/localhost:3000/subscriptions", to: "api#subscriptions"
-
+  get "/localhost:3000/search", to: "api#search"
 end
