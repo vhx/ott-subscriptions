@@ -78,8 +78,23 @@ input {
   }
 }
 
+.column {
+  @media #{$mobile} {
+    display: none;
+  }
+}
+
+.mobile-product {
+  display: none;
+  @media #{$mobile} {
+    display: unset;
+  }
+}
+
 table {
-  width: 80%;
+  width: 95%;
+  margin: auto;
+  border-collapse: collapse;
 }
 
 table tr {
