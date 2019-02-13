@@ -9,9 +9,9 @@ class TableHeader extends Component {
       <table>
         <tbody>
           <tr className="row">
-            <th className="headers">Customer</th>
-            <th className="headers column">Product</th>
-            <th className="headers"><Pagination/></th>
+            <th id="customer-col" className="headers">Customer</th>
+            <th id="product-col" className="headers column">Product</th>
+            <th id="pagination-col" className="headers"><Pagination/></th>
           </tr>
           <TableBody/>
         </tbody>

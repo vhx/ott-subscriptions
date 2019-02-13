@@ -78,6 +78,18 @@ input {
   }
 }
 
+#customer-col {
+  width: 30%;
+}
+
+#product-col {
+  width: 50%;
+}
+
+#pagination-col {
+  width: 20%;
+}
+
 .column {
   @media #{$mobile} {
     display: none;
@@ -109,6 +121,18 @@ th, td {
   border-bottom: 1px solid #ddd;
 }
 
+// footer pagination
+.footer {
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  color: $RegentGray;
+  font-weight: bold;
+}
 
 // *************** Pagination Component ************* //
 

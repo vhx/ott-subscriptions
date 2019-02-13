@@ -1,8 +1,9 @@
-import React, { Fragment } from 'react'
-import ReactDOM from 'react-dom'
+import React, { Fragment } from 'react';
+import ReactDOM from 'react-dom';
 import Header from './header';
-import TableHeader from './tableHeader';
 import Searchbar from './searchbar';
+import TableHeader from './tableHeader';
+import Footer from './footer';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import reducer from './reducer';
@@ -12,7 +13,7 @@ const Index = () => (
     <Header/>
     <Searchbar/>
     <TableHeader/>
-
+    <Footer/>
   </Fragment>
 )
 

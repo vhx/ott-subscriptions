@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import TableRow from './tableRow';
-import { connect } from 'react-redux'
+import { connect } from 'react-redux';
 
 class TableBody extends Component {
   // state = {
