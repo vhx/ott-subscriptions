@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import SearchImage from 'images/search-mono.svg'
+import SearchImage from 'images/search-mono.svg';
+import { connect } from 'react-redux';
 
 
 class Searchbar extends Component {
@@ -22,12 +23,11 @@ class Searchbar extends Component {
     this.search()
   }
 
-  // search = () => {
-  //   console.log('hi')
-  // }
 
   search = () => {
-    fetch('http:localhost:3000/search')
+    fetch(`http:localhost:3000/search?searchterm=`+`${this.state.search}`)
+    .then(r=>r.json())
+    .then(json=>this.props.updateSubscriptions(json))
   }
 
   render() {
@@ -42,4 +42,13 @@ class Searchbar extends Component {
   }
 }
 
-  export default Searchbar
+function mapDispatchToState(dispatch){
+  return {
+    updateSubscriptions: (json)=> dispatch({
+      type: "UPDATE_SUBSCRIPTIONS",
+      payload: json
+    })
+  }
+}
+
+export default connect(null, mapDispatchToState)(Searchbar)

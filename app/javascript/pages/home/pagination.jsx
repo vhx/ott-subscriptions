@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from 'react';
-import { connect } from 'react-redux'
+import { connect } from 'react-redux';
 
 class Pagination extends Component {
 
@@ -9,7 +9,7 @@ class Pagination extends Component {
       .then(r=>r.json())
       .then(json=>this.props.updateSubscriptions(json))
 
-    } else if (propertyName=== 'previous' && this.props.current_page > 1) {
+    } else if (propertyName ==='previous' && this.props.current_page > 1) {
       fetch(`http:localhost:3000/subscriptions?page=`+`${this.props.prev_page}`)
       .then(r=>r.json())
       .then(json=>this.props.updateSubscriptions(json))
