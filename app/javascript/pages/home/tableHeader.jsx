@@ -8,10 +8,10 @@ class TableHeader extends Component {
       <div>
         <table>
           <tbody>
-            <tr>
-              <th>Customer</th>
-              <th>Product</th>
-              <th>Pagination</th>
+            <tr className="row">
+              <th className="headers">Customer</th>
+              <th className="headers">Product</th>
+              <th className="headers">Pagination</th>
             </tr>
             <TableBody/>
           </tbody>

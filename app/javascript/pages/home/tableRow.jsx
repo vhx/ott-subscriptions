@@ -1,4 +1,6 @@
-import React from 'react'
+import React from 'react';
+import Moment from 'react-moment';
+import moment from 'moment';
 
 const TableRow = (props)=> {
 
@@ -6,7 +8,7 @@ const TableRow = (props)=> {
     <tr>
       <td>{props.subscription.customer.email}</td>
       <td>{props.subscription.product.name}</td>
-      <td>{props.subscription.subscribed_at}</td>
+      <td><Moment diff={props.subscription.subscribed_at} unit="days">{moment()}</Moment> days ago</td>
     </tr>
   )
 

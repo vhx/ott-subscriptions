@@ -4,6 +4,7 @@
 body {
   font-family: $default-font;
   margin: 0;
+  color: $DarkDark;
 }
 
 
@@ -56,6 +57,39 @@ div.customers-header + div {
   }
 }
 
+
 form {
-  padding-right: 60px;
+  padding-right: 100px;
+}
+
+input {
+  width: 200px;
+  height: 20px;
+}
+
+// *************** Table Components ************* //
+
+.headers {
+  color: $RegentGray;
+  text-align: left;
+
+  @media #{$mobile} {
+    display: none;
+  }
+}
+
+table {
+  width: 80%;
+}
+
+table tr {
+  height: 90px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  border: 1px;
+}
+th, td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
 }

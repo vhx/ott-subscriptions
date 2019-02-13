@@ -1,7 +1,7 @@
 class ApiController < ApplicationController
 
   def subscriptions
-    @subscriptions = Subscription.all.page(params[:page])
+    @subscriptions = Subscription.all.order(subscribed_at: :desc).page(params[:page])
     render json: @subscriptions
   end
 
