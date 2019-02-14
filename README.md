@@ -29,7 +29,7 @@ View application in browser by visiting:
 
 ## Running the tests
 
-TBD
+Attempted to create controller test in `spec/acceptance/subscriptions_spec.rb` using [Rspec API Documentation](https://github.com/zipmark/rspec_api_documentation), but struggling with configuring files.
 
 ## Built With
   * Ruby on Rails [documentation](https://guides.rubyonrails.org/v5.0/getting_started.html) for backend
