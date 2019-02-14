@@ -32,7 +32,7 @@ View application in browser by visiting:
 Attempted to create controller test in `spec/acceptance/subscriptions_spec.rb` using [Rspec API Documentation](https://github.com/zipmark/rspec_api_documentation), but struggling with configuring files.
 
 ## Built With
-  * Ruby on Rails [documentation](https://guides.rubyonrails.org/v5.0/getting_started.html) for backend
+  * [Ruby on Rails](https://guides.rubyonrails.org/v5.0/getting_started.html) for backend
   * [React](https://reactjs.org/docs/getting-started.html) for frontend UI
   * [React Redux](https://redux.js.org/basics/usage-with-react) for state management
 
