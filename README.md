@@ -1,42 +1,42 @@
-# :sparkles: :sparkles: Customer Subscriptions :sparkles: :sparkles:
+# Vimeo Customer Subscriptions Code Challenge
 
-This project creates a table of users with name, email and products that they have subscribed to.  The user should be able to display all the users as well as search by name or email.
+This project displays a table of subscriptions with three columns: customer emails, subscription products, and days from subscription	date. The user can navigate through pages of results. The user can search by product name and customer email. 	
 
-## Front End Requirements:
+## Getting Started
 
-**This project should:**
-- Be able to retrieve data from the API
-- Be able to display the retrieved data
-- Be able to search the retrieved data and return the desired result on the UI
-- Make use of React or HTML, CSS and vanilla JavaScript for UI elements
-- Make use of a CSS preprocessor (SCSS) for UI elements
-- Ensure that the views are responsive, starting mobile first
+This repository contains a Ruby on Rails app and uses [Webpacker](https://github.com/rails/webpacker)
+ for the frontend. Clone repo and and `cd` into it. Then run the following in your command line:
 
-## Backend Requirements
+`bundle install`
 
-**The Subscriptions Api Should:**
-- Consist of at least 3 ActiveRecord models
-- Contain 2 routes only,  1 for the home page (existing), and 1  subscriptions api end point
-- Return JSON format only using any serialization library of your choice
-- Support api pagination using any pagination gem or library of your choice.
-- Contains a seed file that imports the sample_data.json file into the relational sqlite database.
-- Has at least one test for the api endpoint
+Then:
 
-## General Requirements:
+`rails db:create && rails db:migrate && rails db:seed`
 
-**This project should:**
-- Be thoroughly tested end to end.
-- Have documentation that would be helpful to future engineers working on the project
+To run this app on your local machine run the following:
 
-The tables should look like this when finished:
+`rails s`
 
-**Mobile View**
+View application in browser by visiting:
 
-![mobile_table](mobile_table.png)
+`localhost:3000`
 
+### Prerequisites
 
-**Tablet/Laptop View**
+  * Ensure you have **Ruby** installed on your machine. See Ruby [documentation](https://www.ruby-lang.org/en/documentation/installation/). The Ruby version for this project is ‘2.3.3’.
+  * Ensure you have **Ruby on Rails** installed on your machine. See Ruby on Rails [documentation](https://guides.rubyonrails.org/v5.0/getting_started.html). The Ruby on Rails version for this project is ‘5.1.6’
+  * [Webpacker](https://github.com/rails/webpacker)
 
-![desktop_table](desktop_table.png)
+## Running the tests
 
-**Please Check our [Wiki](https://github.com/vhx/ott-subscriptions/wiki) for instructions, tips and FAQ's**.
+TBD
+
+## Built With
+  * Ruby on Rails [documentation](https://guides.rubyonrails.org/v5.0/getting_started.html) for backend
+  * [React](https://reactjs.org/docs/getting-started.html) for frontend UI
+  * [React Redux](https://redux.js.org/basics/usage-with-react) for state management
+
+## Authors
+
+**Vimeo**
+**Shelby Scalia** - *contributor*

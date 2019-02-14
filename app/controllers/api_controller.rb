@@ -6,10 +6,14 @@ class ApiController < ApplicationController
   end
 
   def search
+    # find emails that contain search query
     emails = Subscription.all.select {|subscription| subscription.customer.email.downcase.include? (params[:searchterm]).downcase}
+    # find [products] that contain search query
     products = Subscription.all.select {|subscription| subscription.product.name.downcase.include? (params[:searchterm]).downcase}
+    # concat and return unique subscriptions
     results = emails + products
     results = results.uniq
+    # return results and paginate
     results =  Kaminari.paginate_array(results).page(params[:page])
     render json: results, meta: pagination_dict(results)
   end
