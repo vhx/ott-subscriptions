@@ -1,25 +1,31 @@
-import React from 'react'
-import ReactDOM from 'react-dom'
-import PropTypes from 'prop-types'
+import React, { Fragment } from 'react';
+import ReactDOM from 'react-dom';
+import Header from './header';
+import Searchbar from './searchbar';
+import TableHeader from './tableHeader';
+import Footer from './footer';
+import { createStore } from 'redux';
+import { Provider } from 'react-redux';
+import reducer from './reducer';
 
-const Index = props => (
-  <div>Hello {props.name}!</div>
+const Index = () => (
+  <Fragment>
+    <Header/>
+    <Searchbar/>
+    <TableHeader/>
+    <Footer/>
+  </Fragment>
 )
 
-Index.defaultProps = {
-  name: ''
-}
-
-Index.propTypes = {
-  name: PropTypes.string
-}
+const store = createStore(reducer);
 
 document.addEventListener('DOMContentLoaded', () => {
   ReactDOM.render(
-    <Index name="React" />,
+    <Provider store={store}>
+      <Index/>
+    </Provider>,
     document.body.appendChild(document.createElement('div')),
   )
 })
-
 
 export default Index
