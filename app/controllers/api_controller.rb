@@ -5,6 +5,8 @@ class ApiController < ApplicationController
     render json: @subscriptions, meta: pagination_dict(@subscriptions)
   end
 
+# FeedbacK: These queries are not very efficient; Look into ActiveRecord 
+
   def search
     # find emails that contain search query
     emails = Subscription.all.select {|subscription| subscription.customer.email.downcase.include? (params[:searchterm]).downcase}

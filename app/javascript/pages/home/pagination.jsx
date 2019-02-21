@@ -3,6 +3,10 @@ import { connect } from 'react-redux';
 
 class Pagination extends Component {
 
+// Feedback: The Url for the fetch should not be exposed. Add ENV variables
+// Feedback: Why did I put the the logic in here rather than pull it out with Redux convetion
+
+
   handleClick = (propertyName) => {
     if (propertyName === 'next' && this.props.current_page < this.props.total_pages) {
       fetch(`http:localhost:3000/subscriptions?page=`+`${this.props.next_page}`)
