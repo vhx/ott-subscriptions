@@ -1,0 +1,185 @@
+/* -------- Base Styles -------- */
+/* ------ Colors --------- */
+/* .....................................
+  Grayscale
+..................................... */
+/* .....................................
+  Blues
+..................................... */
+/* .....................................
+  Greens
+..................................... */
+/* .....................................
+  Reds
+..................................... */
+/* .....................................
+  Interaction Colors
+..................................... */
+/* ------ Fonts --------- */
+/* Please note, the "brandon-font" is not exactly the same as on the photo, but will suffice for this project */
+/* ------ Measurements --------- */
+/* ------ Media Queries --------- */
+/* Suggested usage: https://davidwalsh.name/write-media-queries-sass */
+/* ----------- Mobile  ----------- */
+/* ------ Phablet devices ------ */
+/* ----------- Tablet  ----------- */
+/* ----------- Desktop  ----------- */
+/* line 13, /Users/shelbyscalia/Desktop/vimeo/ott-subscriptions/app/assets/stylesheets/application.scss */
+body {
+  font-family: Helvetica, Arial, sans-serif;
+  margin: 0;
+  color: #2e2e2e;
+}
+
+/* line 22, /Users/shelbyscalia/Desktop/vimeo/ott-subscriptions/app/assets/stylesheets/application.scss */
+.customer-image {
+  margin: 10px 20px 10px 10px;
+  width: 60px;
+}
+@media (min-width: 1px) and (max-width: 639px) {
+  /* line 22, /Users/shelbyscalia/Desktop/vimeo/ott-subscriptions/app/assets/stylesheets/application.scss */
+  .customer-image {
+    margin: 5px 15px 5px 5px;
+    padding-right: 5px;
+    width: 50px;
+  }
+}
+
+/* line 33, /Users/shelbyscalia/Desktop/vimeo/ott-subscriptions/app/assets/stylesheets/application.scss */
+.header-container {
+  width: 100%;
+  height: 80px;
+  display: flex;
+  margin: 20px;
+  align-items: center;
+}
+
+/* line 41, /Users/shelbyscalia/Desktop/vimeo/ott-subscriptions/app/assets/stylesheets/application.scss */
+.customers-header {
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 40px;
+}
+@media (min-width: 1px) and (max-width: 639px) {
+  /* line 41, /Users/shelbyscalia/Desktop/vimeo/ott-subscriptions/app/assets/stylesheets/application.scss */
+  .customers-header {
+    font-size: 20px;
+  }
+}
+
+/* line 50, /Users/shelbyscalia/Desktop/vimeo/ott-subscriptions/app/assets/stylesheets/application.scss */
+div.customers-header + div {
+  color: #8699a6;
+}
+
+/* line 56, /Users/shelbyscalia/Desktop/vimeo/ott-subscriptions/app/assets/stylesheets/application.scss */
+.searchbar-container {
+  width: 100%;
+  height: 120px;
+  background-color: #e3e8e9;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+@media (min-width: 1px) and (max-width: 639px) {
+  /* line 56, /Users/shelbyscalia/Desktop/vimeo/ott-subscriptions/app/assets/stylesheets/application.scss */
+  .searchbar-container {
+    display: none;
+  }
+}
+
+/* line 70, /Users/shelbyscalia/Desktop/vimeo/ott-subscriptions/app/assets/stylesheets/application.scss */
+form {
+  padding-right: 100px;
+}
+
+/* line 74, /Users/shelbyscalia/Desktop/vimeo/ott-subscriptions/app/assets/stylesheets/application.scss */
+#field {
+  width: 200px;
+  height: 20px;
+}
+
+/* line 81, /Users/shelbyscalia/Desktop/vimeo/ott-subscriptions/app/assets/stylesheets/application.scss */
+.headers {
+  color: #8699a6;
+  text-align: left;
+}
+@media (min-width: 1px) and (max-width: 639px) {
+  /* line 81, /Users/shelbyscalia/Desktop/vimeo/ott-subscriptions/app/assets/stylesheets/application.scss */
+  .headers {
+    display: none;
+  }
+}
+
+/* line 90, /Users/shelbyscalia/Desktop/vimeo/ott-subscriptions/app/assets/stylesheets/application.scss */
+#customer-col {
+  width: 30%;
+}
+
+/* line 94, /Users/shelbyscalia/Desktop/vimeo/ott-subscriptions/app/assets/stylesheets/application.scss */
+#product-col {
+  width: 50%;
+}
+
+/* line 98, /Users/shelbyscalia/Desktop/vimeo/ott-subscriptions/app/assets/stylesheets/application.scss */
+#pagination-col {
+  width: 20%;
+}
+
+@media (min-width: 1px) and (max-width: 639px) {
+  /* line 102, /Users/shelbyscalia/Desktop/vimeo/ott-subscriptions/app/assets/stylesheets/application.scss */
+  .column {
+    display: none;
+  }
+}
+
+/* line 108, /Users/shelbyscalia/Desktop/vimeo/ott-subscriptions/app/assets/stylesheets/application.scss */
+.mobile-product {
+  display: none;
+}
+@media (min-width: 1px) and (max-width: 639px) {
+  /* line 108, /Users/shelbyscalia/Desktop/vimeo/ott-subscriptions/app/assets/stylesheets/application.scss */
+  .mobile-product {
+    display: unset;
+  }
+}
+
+/* line 115, /Users/shelbyscalia/Desktop/vimeo/ott-subscriptions/app/assets/stylesheets/application.scss */
+table {
+  width: 95%;
+  margin: auto;
+  border-collapse: collapse;
+}
+
+/* line 121, /Users/shelbyscalia/Desktop/vimeo/ott-subscriptions/app/assets/stylesheets/application.scss */
+table tr {
+  height: 90px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  border: 1px;
+}
+
+/* line 127, /Users/shelbyscalia/Desktop/vimeo/ott-subscriptions/app/assets/stylesheets/application.scss */
+th, td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+/* line 134, /Users/shelbyscalia/Desktop/vimeo/ott-subscriptions/app/assets/stylesheets/application.scss */
+.footer {
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  color: #8699a6;
+  font-weight: bold;
+}
+
+/* line 148, /Users/shelbyscalia/Desktop/vimeo/ott-subscriptions/app/assets/stylesheets/application.scss */
+.arrows:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
