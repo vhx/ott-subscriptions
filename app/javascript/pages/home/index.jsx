@@ -1,9 +1,14 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import PropTypes from 'prop-types'
+import Header from '../../components/header.jsx';
 
 const Index = props => (
-  <div>Hello {props.name}!</div>
+  <Header
+  	title="CUSTOMERS"
+  	desc="Most recent activity from your entire audience"
+  	img={require('../../../assets/images/member.svg')} 
+  />
 )
 
 Index.defaultProps = {
