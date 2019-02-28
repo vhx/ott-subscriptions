@@ -1,5 +1,10 @@
 class ApiController < ApplicationController
 
+  before_action do
+  	@MAX_PAGE_RESULTS = 25
+  	WillPaginate.per_page = @MAX_PAGE_RESULTS
+  end
+
   # GET endpoint, returns subscriptions by query. 
   def subscriptions
     @subscriptions = []
