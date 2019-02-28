@@ -1,10 +1,12 @@
 class ApiController < ApplicationController
 
-  def customers
-    @customers = []
+  # GET endpoint, returns subscriptions by query. 
+  def subscriptions
+    @subscriptions = []
   end
 
-  def search
+  # Returns subscriptions by query and page number.
+  def search_subscriptions
     # EXTRA CREDIT: Implement searching for email, product, and subscription type
   end
 end
