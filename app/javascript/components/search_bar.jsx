@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 class SearchBar extends Component {
 
@@ -35,10 +36,11 @@ class SearchBar extends Component {
   	  <div className="search-bar">
   	  	<input type="text" name="search-input" placeholder={this.props.placeholder} onChange={this.handleChange.bind(this)} onKeyPress={this.handleKeyPress.bind(this)}/>
   	  	<button className="search-button" onClick={this.submit.bind(this)}>
-  	  		
+  	  	  <FontAwesomeIcon icon="search" />
   	  	</button>
   	  </div>
   	);
   }
-
 }
+
+export default SearchBar;
