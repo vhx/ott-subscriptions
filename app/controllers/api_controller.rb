@@ -5,7 +5,15 @@ class ApiController < ApplicationController
     render json: @subscriptions, meta: pagination_dict(@subscriptions)
   end
 
-# FeedbacK: These queries are not very efficient; Look into ActiveRecord 
+# FeedbacK: These queries are not very efficient; Look into ActiveRecord
+
+
+# Notes:
+# https://guides.rubyonrails.org/active_record_querying.html
+# Doing Subscription.all retrieves the entire table
+# and then stores this in memory which is too much
+# Active records has methods to use instead
+# 
 
   def search
     # find emails that contain search query
