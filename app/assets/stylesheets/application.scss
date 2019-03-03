@@ -1,7 +1,32 @@
 /* -------- Base Styles -------- */
 @import './base/_variables.scss';
 @import './react/_variables.scss';
+@import './react/pages/_index.scss';
 @import './react/components/_header.scss';
 @import './react/components/_search-bar.scss';
-@import './react/components/subscriptions-table.scss';
+@import './react/components/_subscriptions-table.scss';
+
+
+html {
+	font-family: $default-font;
+}
+
+body {
+	margin: 0;
+	height: auto;
+}
+
+button:focus {
+	outline: none;
+}
+
+button {
+	border: none;
+}
+
+button:hover {
+	.svg-inline--fa {
+		color: $secondary-color;
+	}
+}
 

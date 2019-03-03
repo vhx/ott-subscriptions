@@ -1,7 +1,6 @@
-$border-radius: 2px;
-$border-width: 0.5px;
+$border-radius: 3px;
+$border-width: 0px;
 $font-size: 18px;
-$highlight-color: rgba(40, 44, 52, 0.3);
 $fa-size: 20px;
 
 .search-bar {
@@ -35,24 +34,12 @@ $fa-size: 20px;
 		border: none;
 	}
 
-	button:focus {
-		outline: none;
-	}
-
-	button {
-		border: none;
-	}
-
-	.search-button, .highlight {
+	.search-button {
 		display: flex;
 		background-color: $background-color;
 		padding-left: 10px;
 		align-items: center;
 		justify-content: center;
-	}
-
-	.svg-inline--fa:hover {
-		color: $highlight-color;
 	}
 
 	.svg-inline--fa {

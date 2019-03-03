@@ -1,7 +1,7 @@
 class ApiController < ApplicationController
 
   before_action do
-  	@MAX_PAGE_RESULTS = 25
+  	@MAX_PAGE_RESULTS = 50
   	WillPaginate.per_page = @MAX_PAGE_RESULTS
   end
 
@@ -38,6 +38,7 @@ class ApiController < ApplicationController
     res = {
       page: page,
       total_pages: @subscriptions.total_pages,
+      total_results: @subscriptions.count,
       subscriptions: @subscriptions.order(subscribed_at: :desc).map {|s| {
       	customer_email: Customer.where(id: s.customer_id).first.email,
       	product_name: Product.where(id: s.product_id).first.name,

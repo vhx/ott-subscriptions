@@ -74,13 +74,13 @@ $phablet-portrait: '(min-width: 640px) and (max-width: 767px) and (orientation: 
 $phablet-landscape: '(min-width: 640px) and (max-width: 767px) and (orientation: landscape)';
 
 /* ----------- Tablet  ----------- */
-$tablet: 'screen and (min-width: 768px) and (max-width: 1024px)';
-$tablet-portrait: 'screen and (min-width: 768px) and (max-width: 1024px) and (orientation: portrait)';
-$tablet-landscape: 'screen and (min-device-width: 768px) and (max-width: 1024px) and (orientation: landscape)';
+$tablet: 'screen and (min-width: 768px) and (max-width: 1023px)';
+$tablet-portrait: 'screen and (min-width: 768px) and (max-width: 1023px) and (orientation: portrait)';
+$tablet-landscape: 'screen and (min-device-width: 768px) and (max-width: 1023px) and (orientation: landscape)';
 
 
 /* ----------- Desktop  ----------- */
-$desktop: '(min-width: 1440px)';
+$desktop: '(min-width: 1024px)';
 $desktop-retina: '(min-width: 1440px) and (min-resolution: 192dpi)';
 
 

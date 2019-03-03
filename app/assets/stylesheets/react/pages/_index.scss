@@ -1,0 +1,22 @@
+$desktop-header-height: 125px;
+$desktop-body-height: calc(100vh - $index-header-height);
+
+.index {
+	display: block;
+	overflow: auto;
+	
+	.head {
+		width: 100%;
+	}
+
+	.body {
+		display: block;
+		width: 100%;
+	}
+
+	
+}
+
+
+
+
