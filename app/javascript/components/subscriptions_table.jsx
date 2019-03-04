@@ -241,21 +241,11 @@ class SubscriptionsTable extends Component {
 
 
   /**
-   * Queries cached data.
+   * Performs search if offline.
    */
   offlineSearch(query) {
-    console.log("searching offline...");
     const new_state = {...this.getReduxState()};
-    console.log(this.cache);
-    const queried_data = this.cache.filter((item) => {
-      /* Function similar to LIKE sql query. */
-      const like = (a, b) => {
-        return b.toLowerCase().indexOf(a.toLowerCase()) >= 0
-      }
-
-      return (like(query, item.customer_email) || like(query, item.product_name) || like(query, item.billing_type));
-    });
-    console.log(queried_data);
+    const queried_data = this.queryCache(query);
     
     queried_data.sort((a, b) => {
       const aDate = new Date(a.subscribed_at);
@@ -271,6 +261,21 @@ class SubscriptionsTable extends Component {
     new_state.data.last_query = query;
 
     this.updateReduxState(new_state);
+  }
+
+
+  /**
+   * Queries cached data.
+   */
+  queryCache(query) {
+    return this.cache.filter((item) => {
+      /* Function similar to LIKE sql query. */
+      const like = (a, b) => {
+        return b.toLowerCase().indexOf(a.toLowerCase()) >= 0
+      }
+
+      return (like(query, item.customer_email) || like(query, item.product_name) || like(query, item.billing_type));
+    });
   }
 
 
@@ -398,7 +403,7 @@ class SubscriptionsTable extends Component {
     var no_cache_to_display = true;
     
     if (is_loading_new_data) {
-      display_data = this.cache.slice(lower_bound, upper_bound);
+      display_data = this.queryCache(_rstate.data.last_query).slice(lower_bound, upper_bound);
       no_cache_to_display = (display_data.length < 1 && _rstate.table.start_entry < _rstate.table.total_entries);
     }
 
