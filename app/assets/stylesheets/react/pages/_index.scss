@@ -1,6 +1,3 @@
-$desktop-header-height: 125px;
-$desktop-body-height: calc(100vh - $index-header-height);
-
 .index {
 	display: block;
 	overflow: auto;
@@ -13,8 +10,6 @@ $desktop-body-height: calc(100vh - $index-header-height);
 		display: block;
 		width: 100%;
 	}
-
-	
 }
 
 

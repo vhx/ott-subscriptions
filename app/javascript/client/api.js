@@ -1,8 +1,3 @@
-/**
- * File: api.js
- * Namespace: app/javascript/client
- */
-
 const routes = {
   subscriptions: "api/subscriptions" // GET
 };

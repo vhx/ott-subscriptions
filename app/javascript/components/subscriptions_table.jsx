@@ -1,3 +1,7 @@
+/**
+ * URL for timeAgo functionality: https://stackoverflow.com/questions/6108819/javascript-timestamp-to-relative-time-eg-2-seconds-ago-one-week-ago-etc-best
+ */
+
 import React, { Component } from 'react';
 import ApiClient from '../client/api.js';
 import SearchBar from './search_bar.jsx';
@@ -29,6 +33,7 @@ class SubscriptionsTable extends Component {
 
   constructor(props) {
     super(props);
+    this.cache = [];
     this.max_page_entries = 10; // Maximum results per page on table. 
     this.search_placeholder = "Search by name, email or subscription type";
     this.state = {
@@ -132,6 +137,18 @@ class SubscriptionsTable extends Component {
     if (need_pages && !_rstate.status.buffering) {
       this.getData();
     }
+
+    /* Cache the subscriptions in the state if any are new */
+    const set_diff = _rstate.data.subscriptions.filter((i) => {
+      const index = this.cache.findIndex((t) => (
+          t.customer_email === i.customer_email && t.product_name === i.product_name && t.billing_type === i.billing_type
+        ));
+      return index < 0;
+    });
+
+    if (set_diff.length > 0) {
+      this.cache = this.cache.concat(set_diff); // Remove duplicates using set.
+    }
   }
 
   /**
@@ -158,7 +175,7 @@ class SubscriptionsTable extends Component {
           subscriptions: _rstate.data.subscriptions.concat(res["subscriptions"]),
           last_query: query
         },
-        status: {
+        status: { // Don't need to use status wrappers after ApiClient.getSubscriptions because we set the status state here.
           buffering: false,
           cancelling: false
         }
@@ -166,9 +183,8 @@ class SubscriptionsTable extends Component {
 
       return new_state;
     }).then((new_state) => {
-      _rstate = this.getReduxState(); // Might be able to remove this.      
+      /* Handle interrupt if search occurs while loading. */
       if (_rstate.status.cancelling) {
-        console.log("inside the if");
         this.setCancelBuffer(false);  // See search() comments for more details. 
         this.setBuffering(false);
         this.forceUpdate();
@@ -188,24 +204,32 @@ class SubscriptionsTable extends Component {
    ** to manage state data being overriden. 
    */
   search(query) {
+    const _rstate = this.getReduxState();
+
+    if (query == _rstate.data.last_query) {
+      return;
+    }
+
+    if (!window.navigator.onLine) {
+      return this.offlineSearch(query);
+    }
+
     this.setCancelBuffer(true);
     this.setBuffering(true);
 
     ApiClient.getSubscriptions(query).then((res) => {
-      const _rstate = this.getReduxState();
-
       const new_state = {
         table: {
-          start_entry: res["page"],
+          start_entry: 1,
           total_entries: res["total_results"],
         },
         data: {
-          page: 1,
+          page: res["page"],
           total_pages: res["total_pages"],
           subscriptions: res["subscriptions"],
           last_query: query
         },
-        status: {
+        status: { // Don't need to use status wrappers after ApiClient.getSubscriptions because we set the status state here.
           buffering: false,
           cancelling: true
         }
@@ -213,6 +237,36 @@ class SubscriptionsTable extends Component {
 
       this.updateReduxState(new_state);
     });
+  }
+
+  offlineSearch(query) {
+    console.log("searching offline...");
+    const new_state = {...this.getReduxState()};
+    console.log(this.cache);
+    const queried_data = this.cache.filter((item) => {
+      /* Function similar to LIKE sql query. */
+      const like = (a, b) => {
+        return b.toLowerCase().indexOf(a.toLowerCase()) >= 0
+      }
+
+      return (like(query, item.customer_email) || like(query, item.product_name) || like(query, item.billing_type));
+    });
+    console.log(queried_data);
+    
+    queried_data.sort((a, b) => {
+      const aDate = new Date(a.subscribed_at);
+      const bDate = new Date(b.subscribed_at);
+      return aDate > bDate;
+    });
+
+    new_state.table.start_entry = 1;
+    new_state.table.total_entries = queried_data.length;
+    new_state.data.page = 1;
+    new_state.data.total_pages = 0;
+    new_state.data.subscriptions = queried_data;
+    new_state.data.last_query = query;
+
+    this.updateReduxState(new_state);
   }
 
 
@@ -266,7 +320,7 @@ class SubscriptionsTable extends Component {
     const start_entry = new_state.table.start_entry;
     var new_start_entry = start_entry + this.max_page_entries;
     const num_loaded_entries = new_state.data.subscriptions.length;
-    new_start_entry = new_start_entry < num_loaded_entries ? new_start_entry : start_entry; // Check if in bounds. 
+    new_start_entry = new_start_entry <= num_loaded_entries ? new_start_entry : start_entry; // Check if in bounds. 
     new_state.table.start_entry = new_start_entry;
     this.updateReduxState(new_state);
     window.scrollTo(0,0);
@@ -328,15 +382,21 @@ class SubscriptionsTable extends Component {
 
 
   /**
-   * Display component 
+   * Display component .
    */
   render() {
     const _rstate = this.getReduxState();
     const range_string = this.getRange();
     const lower_bound = _rstate.table.start_entry - 1;
     const upper_bound = lower_bound + this.max_page_entries;
-    const display_data = _rstate.data.subscriptions.slice(lower_bound, upper_bound);
-    const is_loading = (display_data.length < 1 && _rstate.table.start_entry < _rstate.table.total_entries) || this.state.initial_loading;
+    var display_data = _rstate.data.subscriptions.slice(lower_bound, upper_bound);
+    const is_loading_new_data = (display_data.length < 1 && _rstate.table.start_entry < _rstate.table.total_entries) || this.state.initial_loading;
+    var no_cache_to_display = true;
+    
+    if (is_loading_new_data) {
+      display_data = this.cache.slice(lower_bound, upper_bound);
+      no_cache_to_display = (display_data.length < 1 && _rstate.table.start_entry < _rstate.table.total_entries);
+    }
 
     const table_header = (
       <tr>
@@ -356,7 +416,7 @@ class SubscriptionsTable extends Component {
       );
     });
 
-    const info_label = !is_loading ? (display_data.length < 1 ? <p>No results</p> : null) : <p>Loading...</p>
+    const info_label = !is_loading_new_data ? (display_data.length < 1 ? <p>No results</p> : null) : (no_cache_to_display ? <p>Loading...</p> : null);
 
 
     const navigator_actions = (

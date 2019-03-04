@@ -24,7 +24,7 @@ button {
 	border: none;
 }
 
-button:hover {
+button:hover:enabled {
 	.svg-inline--fa {
 		color: $secondary-color;
 	}

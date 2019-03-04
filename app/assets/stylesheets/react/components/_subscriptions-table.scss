@@ -1,5 +1,6 @@
 $t-font-size: 18px;
-$fa-size: 32px;
+$fa-size-sm: 22px;
+$fa-size-lg: 32px;
 
 $sub-header-height: 55px;
 $table-header-height: 65px;
@@ -174,16 +175,25 @@ $table-header-height: 65px;
 	justify-content: center;
 
 	.navigator-actions {
-		button {
-			margin-left: 5px;
-			margin-right: 5px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+
+	.nav-btn-small {
+		.svg-inline--fa {
+			width: $fa-size-sm;
+			height: $fa-size-sm;
+			padding: 0 !important;
 		}
 	}
 
-	.svg-inline--fa {
-		width: $fa-size;
-		height: $fa-size;
-		padding: 0 !important;
+	.nav-btn-lg {
+		.svg-inline--fa {
+			width: $fa-size-lg;
+			height: $fa-size-lg;
+			padding: 0 !important;
+		}
 	}
 
 	@media #{$tablet} {
