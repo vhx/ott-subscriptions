@@ -24,7 +24,7 @@ When a search is executed, it initially obtains the first page (of the api) resu
 - Returns data in JSON format using the default Ruby `json` library.  
 - Paginates result data using Ruby gem `will_paginate`. Has 50 results per page restriction.
 - Seeds data from `sample_data.json` into Sqlite3 database.
-- Includes Rspec tests for the api endpoint (`api/subscriptions`).
+- Includes RSpec tests for the api endpoint (`api/subscriptions`).
 
 <br />
 
@@ -47,7 +47,7 @@ When a search is executed, it initially obtains the first page (of the api) resu
 - Run `rails s` to start the server.
 - Go to `localhost:3000` in your web browser to view the project.
 
-# Running Rspec Tests
+# Running RSpec Tests
 
 - `cd` into the root directory of the cloned project.
 - Run `rspec`.
@@ -95,9 +95,8 @@ Routes are mapped to controllers in the `config/routes.rb` file. It contains con
 
 ### Route Testing
 
-Route tests for the api controller can be found in `spec/controllers/api_controller_spec.rb`.
+Route tests for the api controller use RSpec and can be found in `spec/controllers/api_controller_spec.rb`. The configuration file for RSpec seeds the sample data into the test Sqlite3 database to properly test the route endpoint. 
 
 ### Database Schema
 
 The database consists of 3 tables (customers, products, subscriptions). The customers table has a unique index for the email column to prevent duplicate customers. The products table has a unique index for the name column to prevent duplicate products. The subscriptions table has a unique index for (customer_id, product_id) to prevent duplicate subscriptions. 
-

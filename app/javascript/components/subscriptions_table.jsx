@@ -239,6 +239,10 @@ class SubscriptionsTable extends Component {
     });
   }
 
+
+  /**
+   * Queries cached data.
+   */
   offlineSearch(query) {
     console.log("searching offline...");
     const new_state = {...this.getReduxState()};
