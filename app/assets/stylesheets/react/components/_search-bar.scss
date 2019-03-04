@@ -1,0 +1,50 @@
+$border-radius: 3px;
+$border-width: 0px;
+$font-size: 18px;
+$fa-size: 20px;
+
+.search-bar {
+
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	overflow: hidden;
+	background-color: $background-color;
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	border-radius: $border-radius;
+	border: solid $highlight-color;
+	border-width: $border-width;
+
+	input:focus {
+		outline:none;
+	}
+
+	input::placeholder {
+		color: $secondary-color;
+	}
+
+	input {
+		flex: 1;
+		font-size: $font-size;
+		font-weight: lighter;
+		color: $primary-color;
+		border: none;
+	}
+
+	.search-button {
+		display: flex;
+		background-color: $background-color;
+		padding-left: 10px;
+		align-items: center;
+		justify-content: center;
+	}
+
+	.svg-inline--fa {
+		width: $fa-size;
+		height: $fa-size;
+		padding: 0 !important;
+	}
+}
