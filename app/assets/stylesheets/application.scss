@@ -1,2 +1,150 @@
+// General comments:
+  // First time using Sass
+  // thank you for providing the variables
+  // Trying to get better at responsive design
+  // I only made used of the media query for mobile
+
+
+
 /* -------- Base Styles -------- */
 @import './base/_variables.scss';
+
+body {
+  font-family: $default-font;
+  margin: 0;
+  color: $DarkDark;
+}
+
+
+// *************** Header Component ************* //
+
+.customer-image {
+  margin: 10px 20px 10px 10px;
+  width: 60px;
+
+  @media #{$mobile} {
+    margin: 5px 15px 5px 5px;
+    padding-right: 5px;
+    width: 50px;
+  }
+}
+
+.header-container {
+  width: 100%;
+  height: 80px;
+  display: flex;
+  margin: 20px;
+  align-items: center;
+}
+
+.customers-header {
+  font-family: $brandon-font;
+  font-size: $large;
+
+  @media #{$mobile} {
+    font-size: $medium;
+  }
+}
+
+div.customers-header + div {
+  color: $RegentGray;
+}
+
+// *************** Searchbar Component ************* //
+
+.searchbar-container {
+  width: 100%;
+  height: 120px;
+  background-color: $Porcelain;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+
+  @media #{$mobile} {
+    display: none;
+  }
+}
+
+
+form {
+  padding-right: 100px;
+}
+
+#field {
+  width: 200px;
+  height: 20px;
+}
+
+// *************** Table Components ************* //
+
+.headers {
+  color: $RegentGray;
+  text-align: left;
+
+  @media #{$mobile} {
+    display: none;
+  }
+}
+
+#customer-col {
+  width: 30%;
+}
+
+#product-col {
+  width: 50%;
+}
+
+#pagination-col {
+  width: 20%;
+}
+
+.column {
+  @media #{$mobile} {
+    display: none;
+  }
+}
+
+.mobile-product {
+  display: none;
+  @media #{$mobile} {
+    display: unset;
+  }
+}
+
+table {
+  width: 95%;
+  margin: auto;
+  border-collapse: collapse;
+}
+
+table tr {
+  height: 90px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  border: 1px;
+}
+th, td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+// footer pagination
+.footer {
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  color: $RegentGray;
+  font-weight: bold;
+}
+
+// *************** Pagination Component ************* //
+
+.arrows:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}

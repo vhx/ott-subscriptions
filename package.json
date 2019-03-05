@@ -4,14 +4,22 @@
   "dependencies": {
     "@rails/webpacker": "3.5",
     "babel-preset-react": "^6.24.1",
+    "moment": "^2.24.0",
     "prop-types": "^15.6.2",
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
+    "react-moment": "^0.8.4",
     "react-redux": "^5.1.1",
     "redux": "^4.0.1",
     "redux-thunk": "^2.3.0"
   },
   "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-loader": "^8.0.5",
+    "babel-preset-env": "^1.7.0",
+    "extract-text-webpack-plugin": "^4.0.0-beta.0",
+    "webpack": "^4.29.5",
+    "webpack-cli": "^3.2.3",
     "webpack-dev-server": "2.11.2"
   }
 }
